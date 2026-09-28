@@ -1,0 +1,3 @@
+const {test}=require('node:test');const assert=require('node:assert/strict');
+test('trophies are unique and unknown awards cannot enter the collection',async()=>{const {collectTrophy}=await import('../src/trophies.mjs');const first=collectTrophy([],'bedroom');assert.deepEqual(first,['bedroom']);assert.equal(collectTrophy(first,'bedroom'),first);assert.equal(collectTrophy(first,'bogus'),first);});
+test('trophy restore handles corruption and removes duplicates without changing world state',async()=>{const {restoreTrophies}=await import('../src/trophies.mjs');assert.deepEqual(restoreTrophies('broken'),[]);assert.deepEqual(restoreTrophies('{}'),[]);assert.deepEqual(restoreTrophies('["wheat","wheat","bogus",null]'),['wheat']);});

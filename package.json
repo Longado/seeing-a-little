@@ -1,0 +1,16 @@
+{
+  "name": "a-little-closer",
+  "private": true,
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test tests/*.test.cjs"
+  },
+  "dependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "three": "0.149.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.10"
+  }
+}
